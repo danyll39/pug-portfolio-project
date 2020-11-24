@@ -1,0 +1,33 @@
+{
+  "name": "pug-portfolio-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "eslint": "./node_modules/.bin/eslint --format codeframe",
+    "lint": "npm run eslint && npm run puglint",
+    "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe",
+    "puglint": "./node_modules/.bin/pug-lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danyll39/pug-portfolio-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danyll39/pug-portfolio-project/issues"
+  },
+  "homepage": "https://github.com/danyll39/pug-portfolio-project#readme",
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "nodemon": "^2.0.6",
+    "pug-lint": "^2.6.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.0"
+  }
+}
