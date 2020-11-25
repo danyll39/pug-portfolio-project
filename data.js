@@ -112,4 +112,6 @@ const data = [{
   garnish: 'lemon'
 
 
-},]
+}]
+
+module.exports = data

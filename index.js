@@ -1,20 +1,23 @@
 const express = require('express')
 const data = require('./data')
 const app = express()
+
 console.log(data)
 
 app.set('view engine', 'pug')
 app.use(express.static('public'))
 
-app.get('/data', (request, response) => {
+app.get('/', (request, response) => {
   return response.render('index', { data })
 })
 
-app.get('/data/:id', (request, response) => {
-  const All = data.seasons[request.params.id - 1]
+app.get('/gamedata/:id', (request, response) => {
+  const alcohol = data.alcohol === request.params.id
 
-  return response.render('characters', { seasonAll })
+  return response.render('characters', { alcohol })
 })
+
+
 
 app.all('*', (request, response) => {
   return response.sendStatus
