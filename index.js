@@ -11,11 +11,11 @@ app.get('/', (request, response) => {
   return response.render('index', { data })
 })
 
-app.get('/gamedata/:id', (request, response) => {
-  const alcohol = data.alcohol === request.params.id
+// app.get('/:drinks', (request, response) => {
+//   const alcohol = data.alcohol === request.params.id
 
-  return response.render('characters', { alcohol })
-})
+//   return response.render('characters', { alcohol })
+// })
 
 
 
