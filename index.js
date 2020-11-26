@@ -10,11 +10,13 @@ app.use(express.static('public'))
 app.get('/', (request, response) => {
   return response.render('index', { data })
 })
-
+app.get('/drinks', (request, response) => {
+  return response.render('drinks', { data })
+})
 // app.get('/:drinks', (request, response) => {
 //   const alcohol = data.alcohol === request.params.id
 
-//   return response.render('characters', { alcohol })
+//   return response.render('', { alcohol })
 // })
 
 
