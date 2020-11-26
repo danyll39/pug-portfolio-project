@@ -36,19 +36,24 @@ html
                                     th(scope="col" class="badge badge-pill badge-primary") GET
                                     th(scope="col") /drinks/alcohol
                                     th(scope="col") Find drink by alcohol
-                                tr
-                                    th(scope="col" class="badge badge-pill badge-success") POST
-                                    th(scope="col") /drinks
-                                    th(scope="col") Find drink by name
-                                    
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#drinksByAlcohol") Click for info
                                 tr
                                     th(scope="col" class="badge badge-pill badge-warning") PUT
                                     th(scope="col") /drinks
                                     th(scope="col") Change drink information by name
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#putDrinks") Click for info
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-success") POST
+                                    th(scope="col") /drinks
+                                    th(scope="col") Find drink by name
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#postDrinks") Click for info
+                                    
+                                
                                 tr
                                     th(scope="col" class="badge badge-pill badge-danger") DELETE
                                     th(scope="col") /drinks
                                     th(scope="col") Delete by name
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#deleteDrinks") Click for info
                     hr
             <!-- Button trigger modal -->
 button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal")
@@ -77,7 +82,51 @@ div(class="modal fade" id="allDrinksModal" tabindex="-1" aria-labelledby="allDri
      div(class="modal-footer")
        button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
      
- 
+<!-- Modal Drinks By Alcohol -->
+
+div(class="modal fade" id="drinksByAlcohol" tabindex="-1" aria-labelledby="alcoholLabel" aria-hidden="true")
+ div(class="modal-dialog")
+   div(class="modal-content")
+     div(class="modal-header")
+       h5(class="modal-title" id="alcoholLabel") Modal title
+       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-footer")
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+
+<!-- Put Drinks -->    
+ div(class="modal fade" id="putDrinks" tabindex="-1" aria-labelledby="putLabel" aria-hidden="true")
+  div(class="modal-dialog")
+   div(class="modal-content")
+     div(class="modal-header")
+       h5(class="modal-title" id="putLabel") Modal title
+       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-footer")
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+<!-- Post Drinks --> 
+
+div(class="modal fade" id="postDrinks" tabindex="-1" aria-labelledby="postLabel" aria-hidden="true")
+ div(class="modal-dialog")
+   div(class="modal-content")
+     div(class="modal-header")
+       h5(class="modal-title" id="postLabel") Modal title
+       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-footer")
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+
+<!-- Delete Drinks -->    
+ div(class="modal fade" id="deleteDrinks" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true")
+  div(class="modal-dialog")
+   div(class="modal-content")
+     div(class="modal-header")
+       h5(class="modal-title" id="deleteLabel") Modal title
+       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-footer")
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+     
 
 
 
