@@ -4,7 +4,7 @@ html
         
         body
             <div class="jumbotron">
-                h1(class="display-4") Hello, world!
+                h1(class="display-4") Welcome to Simple Drinks API
                 p(class="lead") This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
                 hr(class="my-4")
                 p It uses utility classes for typography and spacing to space content out within the larger container.</p>
@@ -55,32 +55,17 @@ html
                                     th(scope="col") Delete by name
                                     th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#deleteDrinks") Click for info
                     hr
-            <!-- Button trigger modal -->
-button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal")
-  Launch demo modal
-
-
-<!-- Modal -->
-div(class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true")
- div(class="modal-dialog")
-   div(class="modal-content")
-     div(class="modal-header")
-       h5(class="modal-title" id="exampleModalLabel") Modal title
-       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scram
-     div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal")
-     
+           
 <!-- Modal  All Drinks -->
 div(class="modal fade" id="allDrinksModal" tabindex="-1" aria-labelledby="allDrinksLabel" aria-hidden="true")
  div(class="modal-dialog")
    div(class="modal-content")
      div(class="modal-header")
-       h5(class="modal-title" id="allDrinksLabel") Modal title
+       h5(class="modal-title" id="allDrinksLabel") GET ALL THE DRINKS!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-body") This link will take you to a page of all drinks listed in the Simple Drinks API. This is api is includes name of drink, alcohol, garnish and abv listed in json format.
      div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") GoodBye
      
 <!-- Modal Drinks By Alcohol -->
 
@@ -88,48 +73,42 @@ div(class="modal fade" id="drinksByAlcohol" tabindex="-1" aria-labelledby="alcoh
  div(class="modal-dialog")
    div(class="modal-content")
      div(class="modal-header")
-       h5(class="modal-title" id="alcoholLabel") Modal title
+       h5(class="modal-title" id="alcoholLabel") GET DRINKS BY ALCOHOL NAME!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-body") This link will take you to all the drinks made with the alcohol added to the url. All drinks will be in json format and will return with name, alcohol used, most popular garnish and abv.
      div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") Cheers
 
 <!-- Put Drinks -->    
  div(class="modal fade" id="putDrinks" tabindex="-1" aria-labelledby="putLabel" aria-hidden="true")
   div(class="modal-dialog")
    div(class="modal-content")
      div(class="modal-header")
-       h5(class="modal-title" id="putLabel") Modal title
+       h5(class="modal-title" id="putLabel") PUT THE DRINKS!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-body") change data???????????????????????????????????????
      div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") Skål
 <!-- Post Drinks --> 
 
 div(class="modal fade" id="postDrinks" tabindex="-1" aria-labelledby="postLabel" aria-hidden="true")
  div(class="modal-dialog")
    div(class="modal-content")
      div(class="modal-header")
-       h5(class="modal-title" id="postLabel") Modal title
+       h5(class="modal-title" id="postLabel") POST DRINKS!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-body") Add a drink to Simple Drinks API. All post must include {name:"xxxx", alcohol:"xxxx", garnish:"xxxx", and abv:"xxxx"}. All drinks should be simple and only include one type of alcohol.
      div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") Proost
 
 <!-- Delete Drinks -->    
  div(class="modal fade" id="deleteDrinks" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true")
   div(class="modal-dialog")
    div(class="modal-content")
      div(class="modal-header")
-       h5(class="modal-title" id="deleteLabel") Modal title
+       h5(class="modal-title" id="deleteLabel") DELETE DRINKS!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-body") Deletes a api from .....
      div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") Salud
      
-
-
-
-
-              
-            
