@@ -2,47 +2,82 @@ html
    head
         include partials/head.pug
         
-        h1  SIMPLE DRINKS API
-            p some words about my api
         body
-            
-            div
-                table(class="table")
-                    thead(class="thead-dark")
-                        tr
-                            th(scope="col") METHOD
-                            th(scope="col") ROUTE
-                            th(scope="col") RETURN
-                            th(scope="col") TEST
-                              
-                        
-                    tbody
-   
-                        tr
-                            th(scope="col" class="badge badge-pill badge-primary") GET
-                                
-                            th(scope="col") /drinks
-                            th(scope="col") Find all Drinks
-                            th(scope="col") 
-                                
+            <div class="jumbotron">
+                h1(class="display-4") Hello, world!
+                p(class="lead") This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+                hr(class="my-4")
+                p It uses utility classes for typography and spacing to space content out within the larger container.</p>
 
-                        tr
-                            th(scope="col" class="badge badge-pill badge-primary") GET
-                            th(scope="col") /drinks/alcohol
-                            th(scope="col") Find drink by alcohol
-                        tr
-                            th(scope="col" class="badge badge-pill badge-success") POST
-                            th(scope="col") /drinks
-                            th(scope="col") Find drink by name
-                            
-                        tr
-                            th(scope="col" class="badge badge-pill badge-warning") PUT
-                            th(scope="col") /drinks
-                            th(scope="col") Change drink information by name
-                        tr
-                            th(scope="col" class="badge badge-pill badge-danger") DELETE
-                            th(scope="col") /drinks
-                            th(scope="col") Delete by name
+            
+                    div(class="container")
+                        table(class="table")
+                            thead(class="thead-dark")
+                                tr
+                                    th(scope="col") METHOD
+                                    th(scope="col") ROUTE
+                                    th(scope="col") RETURN
+                                    th(scope="col") INFO
+                                    
+                                
+                            tbody
+        
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-primary") GET
+                                        
+                                    th(scope="col") /drinks
+                                    th(scope="col") Find all Drinks
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allDrinksModal") Click for info
+                                        
+
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-primary") GET
+                                    th(scope="col") /drinks/alcohol
+                                    th(scope="col") Find drink by alcohol
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-success") POST
+                                    th(scope="col") /drinks
+                                    th(scope="col") Find drink by name
+                                    
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-warning") PUT
+                                    th(scope="col") /drinks
+                                    th(scope="col") Change drink information by name
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-danger") DELETE
+                                    th(scope="col") /drinks
+                                    th(scope="col") Delete by name
+                    hr
+            <!-- Button trigger modal -->
+button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal")
+  Launch demo modal
+
+
+<!-- Modal -->
+div(class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true")
+ div(class="modal-dialog")
+   div(class="modal-content")
+     div(class="modal-header")
+       h5(class="modal-title" id="exampleModalLabel") Modal title
+       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+     div(class="modal-body") Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scram
+     div(class="modal-footer")
+       button(type="button" class="btn btn-secondary" data-dismiss="modal")
+     
+<!-- Modal  All Drinks -->
+div(class="modal fade" id="allDrinksModal" tabindex="-1" aria-labelledby="allDrinksLabel" aria-hidden="true")
+ div(class="modal-dialog")
+   div(class="modal-content")
+     div(class="modal-header")
+       h5(class="modal-title" id="allDrinksLabel") Modal title
+       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+     div(class="modal-body") Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin p
+     div(class="modal-footer")
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") goodBYe
+     
+ 
+
+
 
 
               
