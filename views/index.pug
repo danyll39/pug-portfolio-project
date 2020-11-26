@@ -1,43 +1,49 @@
 html
    head
         include partials/head.pug
-        include partials/scripts
+        
+        h1  SIMPLE DRINKS API
+            p some words about my api
         body
-            div(class="info")
-                table(style="width:100%")
+            
+            div
+                table(class="table")
                     thead(class="thead-dark")
                         tr
                             th(scope="col") METHOD
                             th(scope="col") ROUTE
                             th(scope="col") RETURN
-                            th(scope="col") TEST      
+                            th(scope="col") TEST
+                              
+                        
                     tbody
    
                         tr
-                            th(scope="col") 
-                                onclick= 'GET'
+                            th(scope="col" class="badge badge-pill badge-primary") GET
+                                
                             th(scope="col") /drinks
                             th(scope="col") Find all Drinks
                             th(scope="col") 
-                                button(type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?") Click to toggle popover   
+                                
 
                         tr
-                            th(scope="col") GET
+                            th(scope="col" class="badge badge-pill badge-primary") GET
                             th(scope="col") /drinks/alcohol
                             th(scope="col") Find drink by alcohol
                         tr
-                            th(scope="col") POST
+                            th(scope="col" class="badge badge-pill badge-success") POST
                             th(scope="col") /drinks
                             th(scope="col") Find drink by name
                             
                         tr
-                            th(scope="col") PUT
+                            th(scope="col" class="badge badge-pill badge-warning") PUT
                             th(scope="col") /drinks
                             th(scope="col") Change drink information by name
                         tr
-                            th(scope="col") DELETE
+                            th(scope="col" class="badge badge-pill badge-danger") DELETE
                             th(scope="col") /drinks
                             th(scope="col") Delete by name
+
 
               
             
