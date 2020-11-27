@@ -11,7 +11,7 @@ app.get('/', (request, response) => {
   return response.render('index', { data })
 })
 app.get('/drinks', (request, response) => {
-  return response.render('drinks', { data })
+  return response.render('drinks')
 })
 // app.get('/:drinks', (request, response) => {
 //   const alcohol = data.alcohol === request.params.id

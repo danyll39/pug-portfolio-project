@@ -7,7 +7,7 @@ const data = [{
 },
 {
   name: 'Greyhound',
-  alcohol: 'grapefruit',
+  alcohol: 'Vodka',
   mixer: 'grapefruit',
   abv: '7%',
   garnish: 'lime'
