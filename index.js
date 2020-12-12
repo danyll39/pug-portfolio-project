@@ -2,7 +2,7 @@ const express = require('express')
 const data = require('./data')
 const app = express()
 
-console.log(data)
+
 
 app.set('view engine', 'pug')
 app.use(express.static('public'))

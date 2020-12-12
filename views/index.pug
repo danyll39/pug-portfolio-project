@@ -1,16 +1,13 @@
 html
    head
         include partials/head.pug
-        
-        body
-            
-            div(class="jumbotron") 
+        include partials/modals.pug
+        body   
+            div(class="jumbotron text-center") 
                 h1(class="display-4") Welcome to Simple Drinks API
                 p(class="lead") This is an api for simple one alcohol cocktails.
                 hr(class="my-4")
-                p It uses utility classes for typography and spacing to space content out within the larger container.</p>
-
-            
+                p It uses utility classes for typography and spacing to space content out within the larger container.
                     div(class="container")
                         table(class="table")
                             thead(class="thead-dark")
@@ -18,21 +15,15 @@ html
                                     th(scope="col") METHOD
                                     th(scope="col") ROUTE
                                     th(scope="col") RETURN
-                                    th(scope="col") INFO
-                                    
-                                
+                                    th(scope="col") INFO  
                             tbody
-        
                                 tr
                                     th(class="badge badge-pill badge-primary")
-                                        a(scope="col") GET
-                                       
+                                        a(scope="col") GET  
                                     th 
                                          a(scope="col" href="/drinks") /drinks
                                     th(scope="col") Find all Drinks
-                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allDrinksModal") Click for info
-                                        
-
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allDrinksModal") Click for info    
                                 tr
                                     th(scope="col" class="badge badge-pill badge-primary") GET
                                     th(scope="col") /drinks/alcohol
@@ -48,68 +39,9 @@ html
                                     th(scope="col") /drinks
                                     th(scope="col") Find drink by name
                                     th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#postDrinks") Click for info
-                                    
-                                
                                 tr
                                     th(scope="col" class="badge badge-pill badge-danger") DELETE
                                     th(scope="col") /drinks
                                     th(scope="col") Delete by name
                                     th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#deleteDrinks") Click for info
-                    hr
-           
-<!-- Modal  All Drinks -->
-div(class="modal fade" id="allDrinksModal" tabindex="-1" aria-labelledby="allDrinksLabel" aria-hidden="true")
- div(class="modal-dialog")
-   div(class="modal-content")
-     div(class="modal-header")
-       h5(class="modal-title" id="allDrinksLabel") GET ALL THE DRINKS!!
-       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") This link will take you to a page of all drinks listed in the Simple Drinks API. This is api is includes name of drink, alcohol, garnish and abv listed in json format.
-     div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") GoodBye
-     
-<!-- Modal Drinks By Alcohol -->
-
-div(class="modal fade" id="drinksByAlcohol" tabindex="-1" aria-labelledby="alcoholLabel" aria-hidden="true")
- div(class="modal-dialog")
-   div(class="modal-content")
-     div(class="modal-header")
-       h5(class="modal-title" id="alcoholLabel") GET DRINKS BY ALCOHOL NAME!!
-       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") This link will take you to all the drinks made with the alcohol added to the url. All drinks will be in json format and will return with name, alcohol used, most popular garnish and abv.
-     div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") Cheers
-
-<!-- Put Drinks -->    
- div(class="modal fade" id="putDrinks" tabindex="-1" aria-labelledby="putLabel" aria-hidden="true")
-  div(class="modal-dialog")
-   div(class="modal-content")
-     div(class="modal-header")
-       h5(class="modal-title" id="putLabel") PUT THE DRINKS!!
-       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") change data???????????????????????????????????????
-     div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") Skål
-<!-- Post Drinks --> 
-
-div(class="modal fade" id="postDrinks" tabindex="-1" aria-labelledby="postLabel" aria-hidden="true")
- div(class="modal-dialog")
-   div(class="modal-content")
-     div(class="modal-header")
-       h5(class="modal-title" id="postLabel") POST DRINKS!!
-       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Add a drink to Simple Drinks API. All post must include {name:"xxxx", alcohol:"xxxx", garnish:"xxxx", and abv:"xxxx"}. All drinks should be simple and only include one type of alcohol.
-     div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") Proost
-
-<!-- Delete Drinks -->    
- div(class="modal fade" id="deleteDrinks" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true")
-  div(class="modal-dialog")
-   div(class="modal-content")
-     div(class="modal-header")
-       h5(class="modal-title" id="deleteLabel") DELETE DRINKS!!
-       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Deletes a api from .....
-     div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") Salud
-     
+                    hr         
