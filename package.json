@@ -22,14 +22,21 @@
   },
   "homepage": "https://github.com/danyll39/pug-portfolio-project#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^7.14.0",
+    "mocha": "^8.2.1",
     "nodemon": "^2.0.6",
-    "pug-lint": "^2.6.0"
+    "pug-lint": "^2.6.0",
+    "sinon": "^9.2.2",
+    "sinon-chai": "^3.5.0"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "pug": "^3.0.0",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
   }
 }
