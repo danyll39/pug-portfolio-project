@@ -4,6 +4,9 @@ module.exports = {
       {
         name: 'Cape Cod', alcohol: 'Vodka', mixer: 'cranberry', abv: 14, garnish: 'lime'
       },
+      {
+        name: 'Gin and Tonic', alcohol: 'Gin', mixer: 'tonic', abv: 14, garnish: 'lime'
+      }
     /**
      * Add altering commands here.
      *
