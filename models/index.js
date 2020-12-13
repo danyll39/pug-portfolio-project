@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize')
-const dataModel = require('./data')
+const allConfigs = require('../config/sequelize')
+const DrinksModel = require('./drinks')
 
-const connection = new Sequelize('drinks'// database
-  , 'data'// name of user
-  , 'Dr1nks!'// password
-  , {
-    host: 'localhost', dialect: 'mysql'
-  })
+const environment = process.env.NODE_ENV || 'development'
+const config = allConfigs[environment]
 
-const data = dataModel(connection, Sequelize)
+const connection = new Sequelize(config.database, config.username, config.password, {
+  host: config.host, dialect: config.dialect
+})
+const Drinks = DrinksModel(connection, Sequelize)
 
-module.exports = { data }
+module.exports = { Drinks }
