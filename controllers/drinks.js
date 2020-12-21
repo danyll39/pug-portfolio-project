@@ -1,53 +1,16 @@
 const models = require('../models')
 
-// const getAllDrinks = async (request, response) => {
-//   models.Drinks.findAll({
 
-//   }).then(function (foundDrinks) {
-//       console.log(foundDrinks.length)
-//     return response.json(foundDrinks)
 
-//   })
-// }
 const getAllDrinks = async (request, response) => {
   try {
-    const drinks = await models.Drinks.findAll({
+    const drinks = await models.Drinks.findAll()
 
-    })
+
 
     return response.send(drinks)
   } catch (error) {
     response.status(500).send('You must be drunk if you couldn\'t get the page')
-  }
-}
-
-const getDrinksByAlcohol = async (request, response) => {
-  console.log(request.params)
-  try {
-    const { identifier } = request.params
-
-    const foundDrink = await models.Drinks.findAll({
-
-
-      where: {
-        [models.Op.or]: [
-
-          { alcohol: { [models.Op.like]: `%${identifier}%` } },
-        ],
-
-      }
-    })
-
-    console.log(foundDrink)
-
-
-    return foundDrink
-
-
-      ? response.send(foundDrink)
-      : response.sendStatus(404)
-  } catch (error) {
-    return response.status(500).send('Unable to retrieve author, please try again')
   }
 }
 const saveNewDrink = async (request, response) => {
@@ -56,36 +19,39 @@ const saveNewDrink = async (request, response) => {
       name, alcohol, mixer, abv, garnish
     } = request.body
 
-    if (!name || !alcohol || !mixer || !mixer || !abv || !garnish) {
-      return response.status(404).send('The following fields are required: name, alcohol, mixer')
+    if (!name || !alcohol || !mixer || !abv || !garnish) {
+      return response.status(404).send('The following fields are required: name, alcohol, mixer, abv, garnish')
     }
-    const newVillain = await models.villains.create({
+    const newDrink = await models.Drinks.create({
       name, alcohol, mixer, abv, garnish
     })
 
-    return response.status(201).send(newVillain)
+    return response.status(201).send(newDrink)
   } catch (error) {
-    return response.status(500).send('Unable to save villain, please try again')
+    return response.status(500).send('Unable to save drink, please try again')
   }
 }
+
 const deleteDrink = async (request, response) => {
   try {
-    const id = parseInt(request.params.id)
-    const drink = await models.Drinks.findOne({ where: { id } })
+    const { name } = request.params
+    const matchingDrinks = await models.Drinks.findOne({ where: { name } })
 
-    if (!drink) return response.status(404).send(`Unknown drink with ID: ${id}`)
+    if (!matchingDrinks) {
+      return response.status(404)
+    }
 
-    if (drink.protected) return response.status(409).send('Cannot delete protected drinks')
 
-    await models.Animals.destroy({ where: { id } })
+    await models.Drinks.destroy({ where: { name: name } })
 
-    return response.send(`Successfully deleted the drink with ID: ${id}`)
-  } catch (error) {
-    return response.status(500).send('Unknown error while deleting drink')
+    return response.send('Successfully deleted the drink')
+  }
+  catch (error) {
+    return response.status(500).send('Unknown error while deleting drink, please try again.')
   }
 }
 
 
 
 
-module.exports = { getAllDrinks, getDrinksByAlcohol, saveNewDrink, deleteDrink }
+module.exports = { getAllDrinks, saveNewDrink, deleteDrink }
