@@ -2,28 +2,60 @@ const models = require('../models')
 
 
 
+
+
 const getAllDrinks = async (request, response) => {
   try {
-    const drinks = await models.Drinks.findAll()
+    const drinks = await models.Drinks.findAll({
+      include: [
+        {
+          model: models.Alcohols
+        }
+      ],
 
-
+    })
 
     return response.send(drinks)
   } catch (error) {
     response.status(500).send('You must be drunk if you couldn\'t get the page')
   }
 }
+const getDrinkByName = async (request, response) => {
+  try {
+    const { identifier } = request.params
+
+    const foundDrinks = await models.Drinks.findOne({
+
+
+      where: {
+        [models.Op.or]: [
+
+          { name: { [models.Op.like]: `%${identifier}%` } },
+        ],
+
+      }
+    })
+
+    return foundDrinks
+
+      ? response.send(foundDrinks)
+      : response.sendStatus(404)
+  } catch (error) {
+    response.status(500).send('You must be drunk if you couldn\'t get the page')
+  }
+}
+
 const saveNewDrink = async (request, response) => {
   try {
     const {
-      name, alcohol, mixer, abv, garnish
+      name, directions, mixer, garnish, alcoholId
     } = request.body
 
-    if (!name || !alcohol || !mixer || !abv || !garnish) {
-      return response.status(404).send('The following fields are required: name, alcohol, mixer, abv, garnish')
+    if (!name || !directions || !mixer || !garnish || !alcoholId) {
+      return response.status(404).send('The following fields are required: name, directions, mixer, garnish, alcoholId')
     }
     const newDrink = await models.Drinks.create({
-      name, alcohol, mixer, abv, garnish
+      name, directions, mixer, garnish, alcoholId
     })
 
     return response.status(201).send(newDrink)
@@ -51,7 +83,4 @@ const deleteDrink = async (request, response) => {
   }
 }
 
-
-
-
-module.exports = { getAllDrinks, saveNewDrink, deleteDrink }
+module.exports = { getAllDrinks, saveNewDrink, getDrinkByName, deleteDrink }
