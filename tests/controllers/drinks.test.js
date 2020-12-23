@@ -278,7 +278,7 @@ describe('Controllers - drinks', () => {
     })
   })
   describe('deleteAlcohol', () => {
-    it('responds with success message when drink is deleted', async () => {
+    it('responds with success message when alcohol is deleted', async () => {
       stubbedAlcoholFindOne.returns(singleAlcohol)
       stubbedAlcoholDestroy.returns({})
       const request = { params: { name: 'Gin' } }

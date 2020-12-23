@@ -12,7 +12,6 @@ const drinksList = [{
   alcoholId: 1
 }]
 
-
 const singleDrink = {
   name: 'Gin and Tonic',
   directions: 'directions',
