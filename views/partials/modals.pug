@@ -5,28 +5,38 @@ div(class="modal fade" id="allDrinksModal" tabindex="-1" aria-labelledby="allDri
      div(class="modal-header")
        h5(class="modal-title" id="allDrinksLabel") GET ALL THE DRINKS!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") This link will take you to a page of all drinks listed in the Simple Drinks API. This is api is includes name of drink, alcohol, garnish and abv listed in json format.
+     div(class="modal-body") This link will take you to a page of all drinks listed in the Simple Drinks API. This includes name of drink, description, garnish, and mixer listed in json format.
      div(class="modal-footer")
        button(type="button" class="btn btn-secondary" data-dismiss="modal") Cheers
-<!-- Modal Drinks By Alcohol -->
-div(class="modal fade" id="drinksByAlcohol" tabindex="-1" aria-labelledby="alcoholLabel" aria-hidden="true")
+<!-- Modal Drinks By name of drink -->
+div(class="modal fade" id="drinksByNameOfDrink" tabindex="-1" aria-labelledby="nameOfDrinkLabel" aria-hidden="true")
  div(class="modal-dialog")
    div(class="modal-content")
      div(class="modal-header")
-       h5(class="modal-title" id="alcoholLabel") GET DRINKS BY ALCOHOL NAME!!
+       h5(class="modal-title" id="nameOfDrinkLabel") GET DRINKS BY ALCOHOL NAME!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") This link will take you to all the drinks made with the alcohol added to the url. All drinks will be in json format and will return with name, alcohol used, most popular garnish and abv.
+     div(class="modal-body") This will return a specific drink entered into url including partial patches. For example drinks/cod will return all the information for the drink cape cod.
      div(class="modal-footer")
        button(type="button" class="btn btn-secondary" data-dismiss="modal") Gon Bay
-<!--  Modal Put Drinks -->    
- div(class="modal fade" id="putDrinks" tabindex="-1" aria-labelledby="putLabel" aria-hidden="true")
-  div(class="modal-dialog")
+<!-- Modal  All Alcohols -->
+div(class="modal fade" id="allAlcoholsModal" tabindex="-1" aria-labelledby="allAlcoholsLabel" aria-hidden="true")
+ div(class="modal-dialog")
    div(class="modal-content")
      div(class="modal-header")
-       h5(class="modal-title" id="putLabel") PUT THE DRINKS!!
+       h5(class="modal-title" id="allAlcoholsLabel") GET ALL THE ALCOHOLS!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") change data???????????????????????????????????????
+     div(class="modal-body") This link will take you to a page of all Alcohols listed in the Simple Drinks API. This includes name of drink and abv all in json format.
      div(class="modal-footer")
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") Gesondheid
+<!-- Modal Drinks By Alcohol -->
+div(class="modal fade" id="drinksByAlcoholModal" tabindex="-1" aria-labelledby="drinksByAlcoholLabel" aria-hidden="true")
+ div(class="modal-dialog")
+   div(class="modal-content")
+     div(class="modal-header")
+       h5(class="modal-title" id="drinksByAlcoholLabel")  GET A THE DRINKS LISTED UNDER ALCOHOL!!
+       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+     div(class="modal-body") Enter the name of an particular alcohol and all drinks containing that alcohol will return including description of how it is made. 
+       div(class="modal-footer")
        button(type="button" class="btn btn-secondary" data-dismiss="modal") Skål
 <!--  Modal Post Drinks --> 
 div(class="modal fade" id="postDrinks" tabindex="-1" aria-labelledby="postLabel" aria-hidden="true")
@@ -35,7 +45,17 @@ div(class="modal fade" id="postDrinks" tabindex="-1" aria-labelledby="postLabel"
      div(class="modal-header")
        h5(class="modal-title" id="postLabel") POST DRINKS!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Add a drink to Simple Drinks API. All post must include {name:"xxxx", alcohol:"xxxx", garnish:"xxxx", and abv:"xxxx"}. All drinks should be simple and only include one type of alcohol.
+     div(class="modal-body") Add a drink to Simple Drinks API. All post must include {name:"xxxx", directions: "xxxx" ,garnish:"xxxx", mixer"xxxx"}. All drinks should be simple and only include one type of alcohol.
+     div(class="modal-footer")
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") Saúde.
+<!--  Modal Post Alcohol --> 
+div(class="modal fade" id="postAlcohol" tabindex="-1" aria-labelledby="postAlcoholLabel" aria-hidden="true")
+ div(class="modal-dialog")
+   div(class="modal-content")
+     div(class="modal-header")
+       h5(class="modal-title" id="postAlcoholLabel") POST ALCOHOLS!!
+       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+     div(class="modal-body") Add a drink to Simple Drinks API. All post must include {name:"xxxx", abv:"xxxx"}. All drinks should be simple and only include one type of alcohol.
      div(class="modal-footer")
        button(type="button" class="btn btn-secondary" data-dismiss="modal") Proost
 <!--  Modal Delete Drinks -->    
@@ -45,6 +65,16 @@ div(class="modal fade" id="postDrinks" tabindex="-1" aria-labelledby="postLabel"
      div(class="modal-header")
        h5(class="modal-title" id="deleteLabel") DELETE DRINKS!!
        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-     div(class="modal-body") Deletes a api from .....
+     div(class="modal-body") Delete Drink by name of the drink.
      div(class="modal-footer")
-       button(type="button" class="btn btn-secondary" data-dismiss="modal") Salud   
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") Salud 
+<!--  Modal Delete Alcohols -->    
+ div(class="modal fade" id="deleteAlcohols" tabindex="-1" aria-labelledby="deleteAlcoholLabel" aria-hidden="true")
+  div(class="modal-dialog")
+   div(class="modal-content")
+     div(class="modal-header")
+       h5(class="modal-title" id="deleteAlcoholLabel") DELETE AlCOHOL!!
+       button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+     div(class="modal-body") Delete alcohol by name of the alcohol.
+     div(class="modal-footer")
+       button(type="button" class="btn btn-secondary" data-dismiss="modal") Geonbae    

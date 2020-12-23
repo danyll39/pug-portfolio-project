@@ -36,7 +36,7 @@ module.exports = {
         name: 'Gin and Tea', directions: 'In an old-fashioned glass filled with ice, pour the gin and chilled tea. Add the lemon juice and sugar to taste.', mixer: 'Tea', garnish: 'lime', alcoholId: 2
       },
       {
-        name: 'Roses Gimlet', directions: 'Shake and strain into a martini or old-fashioned glass.', mixer: 'lime juice', abv: 11, garnish: 'lime', alcoholId: 2
+        name: 'Roses Gimlet', directions: 'Shake and strain into a martini or old-fashioned glass.', mixer: 'lime juice', garnish: 'lime', alcoholId: 2
       },
       {
         name: 'Scotch and Soda', directions: 'Pour the Scotch into a highball or old-fashioned glass filled with ice. Top with the club soda.', mixer: 'soda water', garnish: 'lemon', alcoholId: 4
@@ -55,10 +55,6 @@ module.exports = {
       {
         name: 'Cranberry Champagne Cocktail', directions: 'In a chilled Champagne flute add cranberry juice and a squeeze of lime. Top off the glass with Champagne. Garnish with 3 or 4 cranberries.', mixer: 'cranberry juice', garnish: 'lime', alcoholId: 1
       },
-
-
-
-
     /**
      * Add altering commands here.
      *
@@ -77,7 +73,6 @@ module.exports = {
 
     ])
   },
-
   down: async (queryInterface) => {
     await queryInterface.bulkDelete('drinks')
 
