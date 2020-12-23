@@ -53,15 +53,13 @@ describe('Controllers - drinks', () => {
       status: stubbedStatus,
     }
   })
-
   beforeEach(() => {
     stubbedStatus.returns({ send: stubbedStatusSend })
   })
   afterEach(() => {
     sandbox.reset() })
-
   describe('getAllDrinks', () => {
-    it('retrieves a list of drinks from the database and calls response.send() with the list', async () => {
+    it('retrieves a list of drinks from the database', async () => {
       stubbedFindAll.returns(drinksList)
 
       await getAllDrinks({}, response)
@@ -79,36 +77,40 @@ describe('Controllers - drinks', () => {
       expect(stubbedStatusSend).to.have.been.calledWith('You must be drunk if you couldn\'t get the page')
     })
   })
-
   describe('getDrinkByName', () => {
     it('responds with success message when drink is found', async () => {
-      stubbedFindAll.returns(singleDrink)
+      stubbedFindOne.returns(singleDrink)
 
-      await getDrinkByName({}, response)
+      const request = { params: { name: 'Gin and Tonic' } }
 
-      expect(stubbedFindAll).to.have.callCount(1)
+      await getDrinkByName(request, response)
+      expect(stubbedFindOne).to.have.been.calledWith({
+        where: {
+          [models.Op.or]: [
+            { name: { [models.Op.like]: '%undefined%' } },
+          ],
+        }
+      })
+      expect(stubbedFindOne).to.have.callCount(1)
       expect(stubbedSend).to.have.been.calledWith(singleDrink)
     })
-
     it('responds with a 404 when no drink can be found with the name passed in', async () => {
       stubbedFindOne.returns(null)
 
-      const request = { name: 'not-found' }
+      const request = { params: { name: 'null' } }
 
       await getDrinkByName(request, response)
 
       expect(stubbedFindOne).to.have.been.calledWith({
         where: {
           [models.Op.or]: [
-
-            { name: { [models.Op.like]: '%${identifier}%' } },
-          ]
+            { name: { [models.Op.like]: '%undefined%' } },
+          ],
         }
       })
-      expect(stubbedFindOne).to.have.callCount(0)
-      expect(response.status).to.have.been.calledWith(404)
+      expect(stubbedDestroy).to.have.callCount(0)
+      expect(response.sendStatus).to.have.been.calledWith(404)
     })
-
     it('responds with a 500 status and error message with the database call throws an error', async () => {
       stubbedFindAll.throws('ERROR!')
       const request = { body: singleDrink }
@@ -148,8 +150,6 @@ describe('Controllers - drinks', () => {
       expect(stubbedStatusSend).to.have.been.calledWith('Unable to save drink, please try again')
     })
   })
-
-
   describe('deleteDrink', () => {
     it('responds with success message when drink is deleted', async () => {
       stubbedFindOne.returns(singleDeleteDrink)
@@ -162,7 +162,6 @@ describe('Controllers - drinks', () => {
       expect(stubbedDestroy).to.have.been.calledWith({ where: { name: 'Gin and Tea' } })
       expect(response.send).to.have.been.calledWith('Successfully deleted the drink')
     })
-
     it('responds with a 404 when no drink can be found with the name passed in', async () => {
       stubbedFindOne.returns(null)
 
@@ -174,7 +173,6 @@ describe('Controllers - drinks', () => {
       expect(stubbedDestroy).to.have.callCount(0)
       expect(response.status).to.have.been.calledWith(404)
     })
-
     it('returns a 500 error when the database calls fails', async () => {
       stubbedFindOne.returns(singleDeleteDrink)
       stubbedDestroy.throws('ERROR!')
@@ -188,13 +186,8 @@ describe('Controllers - drinks', () => {
       expect(stubbedStatusSend).to.have.been.calledWith('Unknown error while deleting drink, please try again.')
     })
   })
-
-
-
-
-
   describe('getAllDrinksByAlcohol', () => {
-    it('retrieves a list of drinks from the database and calls response.send() with the list', async () => {
+    it('retrieves a list of drinks from the database', async () => {
       stubbedAlcoholFindAll.returns(alcoholList)
 
       await getAllDrinksByAlcohol({}, response)
@@ -213,34 +206,38 @@ describe('Controllers - drinks', () => {
     })
   })
   describe('getDrinksByAlcoholName', () => {
-    it('responds with success message when drink is found', async () => {
+    it('return the drink or drinks related to alcohol ', async () => {
       stubbedAlcoholFindAll.returns(singleAlcohol)
+      const request = { params: { name: 'Gin' } }
 
-      await getDrinksByAlcoholName({}, response)
-
-      expect(stubbedAlcoholFindAll).to.have.callCount(1)
+      await getDrinksByAlcoholName(request, response)
+      expect(stubbedAlcoholFindAll).to.have.been.calledWith({
+        include: [{ model: models.Drinks }],
+        where: {
+          [models.Op.or]: [
+            { name: { [models.Op.like]: '%undefined%' } },
+          ],
+        }
+      })
       expect(stubbedSend).to.have.been.calledWith(singleAlcohol)
     })
+    it('responds with a 404 when no alcohol can be found with the name passed in', async () => {
+      stubbedAlcoholFindAll.returns(null)
 
-    it('responds with a 404 when no drink can be found with the name passed in', async () => {
-      stubbedAlcoholFindOne.returns(null)
-
-      const request = { name: 'not-found' }
+      const request = { params: { name: 'not-found' } }
 
       await getDrinksByAlcoholName(request, response)
 
-      expect(stubbedAlcoholFindOne).to.have.been.calledWith({
+      expect(stubbedAlcoholFindAll).to.have.been.calledWith({
+        include: [{ model: models.Drinks }],
         where: {
           [models.Op.or]: [
-
-            { name: { [models.Op.like]: '%${identifier}%' } },
+            { name: { [models.Op.like]: '%undefined%' } },
           ]
         }
       })
-      expect(stubbedAlcoholFindOne).to.have.callCount(0)
-      expect(response.status).to.have.been.calledWith(404)
+      expect(response.sendStatus).to.have.been.calledWith(404)
     })
-
     it('responds with a 500 status and error message with the database call throws an error', async () => {
       stubbedAlcoholFindAll.throws('ERROR!')
       const request = { body: singleAlcohol }
@@ -251,7 +248,6 @@ describe('Controllers - drinks', () => {
       expect(stubbedStatusSend).to.have.been.calledWith('You must be drunk if you couldn\'t get the page')
     })
   })
-
   describe('saveNewAlcohol', () => {
     it('accepts new drink details and saves them as a new drink, returning the saved record 201 status', async () => {
       stubbedCreate.returns(singleAlcohol)
@@ -281,8 +277,6 @@ describe('Controllers - drinks', () => {
       expect(stubbedStatusSend).to.have.been.calledWith('Unable to save alcohol, please try again')
     })
   })
-
-
   describe('deleteAlcohol', () => {
     it('responds with success message when drink is deleted', async () => {
       stubbedAlcoholFindOne.returns(singleAlcohol)
@@ -295,7 +289,6 @@ describe('Controllers - drinks', () => {
       expect(stubbedAlcoholDestroy).to.have.been.calledWith({ where: { name: 'Gin' } })
       expect(response.send).to.have.been.calledWith('Successfully deleted the alcohol')
     })
-
     it('responds with a 404 when no drink can be found with the name passed in', async () => {
       stubbedAlcoholFindOne.returns(null)
 
@@ -307,7 +300,6 @@ describe('Controllers - drinks', () => {
       expect(stubbedAlcoholDestroy).to.have.callCount(0)
       expect(response.status).to.have.been.calledWith(404)
     })
-
     it('returns a 500 error when the database calls fails', async () => {
       stubbedAlcoholFindOne.returns(singleDeleteDrink)
       stubbedAlcoholDestroy.throws('ERROR!')
@@ -322,4 +314,3 @@ describe('Controllers - drinks', () => {
     })
   })
 })
-
