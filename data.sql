@@ -6,9 +6,6 @@ GRANT ALL ON drinks.*TO'data'@'localhost';
 
 USE drinks;
 
-
-
-
 CREATE TABLE alcohols (
   id INT auto_increment,
   name  VARCHAR(255),
@@ -39,9 +36,6 @@ INSERT INTO alcohols (name, abv) VALUES ('Rum', 40);
 INSERT INTO alcohols (name, abv) VALUES ('Scotch', 40);
 INSERT INTO alcohols (name, abv) VALUES ('Vodka', 40);
 
-
-
-
 INSERT INTO drinks( name, directions,  mixer, garnish, alcoholId) VALUES ('Cape cod', 'Into an old fashioned glass over ice cubes, pour vodka and cranberry juice. Squeeze lime wedge into drink, and then drop the wedge into the drink. Serve.',  'cranberry',  'lime', 5 );
 INSERT INTO drinks( name, directions,  mixer, garnish, alcoholId) VALUES ('Gin and Tonic', 'In a highball glass filled with ice cubes, pour the gin, then top with tonic', 'tonic', 'lime', 2);
 INSERT INTO drinks( name, directions,  mixer, garnish, alcoholId) VALUES ('Greyhound', 'Pour the vodka and grapefruit juice into a collins glass filled with ice cubes.', 'grapefruit', 'lime', 5);
@@ -59,7 +53,3 @@ INSERT INTO drinks( name, directions,  mixer, garnish, alcoholId) VALUES ('Scotc
 INSERT INTO drinks( name, directions,  mixer, garnish, alcoholId) VALUES ('Presbyterian', 'Pour a shot of whiskey into a highball glass filled with ice. Fill with ginger ale. Stir and garnish with a lemon twist.', 'ginger ale', 'lemon twist', 4);
 INSERT INTO drinks( name, directions,  mixer, garnish, alcoholId) VALUES ('Mimosa',  'Fill 8 champagne flutes 1/2 full with chilled sparkling wine. Top with orange juice', 'orange juice',  'fruit', 1);
 INSERT INTO drinks( name, directions,  mixer, garnish, alcoholId) VALUES ('Cranberry Champagne Cocktail', 'In a chilled Champagne flute add cranberry juice and a squeeze of lime. Top off the glass with Champagne. Garnish with 3 or 4 cranberries.', 'cranberry juice', 'lime', 1);
-
-
-
-

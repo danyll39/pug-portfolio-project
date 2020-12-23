@@ -8,7 +8,6 @@ const getAllDrinksByAlcohol = async (request, response) => {
           model: models.Drinks
         }
       ],
-
     })
 
     return response.send(drinks)
@@ -21,9 +20,7 @@ const getDrinksByAlcoholName = async (request, response) => {
   try {
     const { identifier } = request.params
 
-    const foundDrinks = await models.Alcohols.findOne({
-
-
+    const foundDrinks = await models.Alcohols.findAll({
       include: [{ model: models.Drinks }],
       where: {
         [models.Op.or]: [
@@ -34,7 +31,6 @@ const getDrinksByAlcoholName = async (request, response) => {
     })
 
     return foundDrinks
-
       ? response.send(foundDrinks)
       : response.sendStatus(404)
   } catch (error) {
@@ -69,8 +65,6 @@ const deleteAlcohol = async (request, response) => {
     if (!matchingAlcohol) {
       return response.status(404)
     }
-
-
     await models.Alcohols.destroy({ where: { name: name } })
 
     return response.send('Successfully deleted the alcohol')
@@ -79,10 +73,5 @@ const deleteAlcohol = async (request, response) => {
     return response.status(500).send('Unknown error while deleting drink, please try again.')
   }
 }
-
-
-
-
-
 
 module.exports = { getAllDrinksByAlcohol, getDrinksByAlcoholName, saveNewAlcohol, deleteAlcohol }

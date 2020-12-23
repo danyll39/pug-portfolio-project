@@ -1,9 +1,5 @@
 const models = require('../models')
 
-
-
-
-
 const getAllDrinks = async (request, response) => {
   try {
     const drinks = await models.Drinks.findAll({
@@ -12,7 +8,6 @@ const getAllDrinks = async (request, response) => {
           model: models.Alcohols
         }
       ],
-
     })
 
     return response.send(drinks)
@@ -23,21 +18,15 @@ const getAllDrinks = async (request, response) => {
 const getDrinkByName = async (request, response) => {
   try {
     const { identifier } = request.params
-
     const foundDrinks = await models.Drinks.findOne({
-
-
       where: {
         [models.Op.or]: [
-
           { name: { [models.Op.like]: `%${identifier}%` } },
         ],
-
       }
     })
 
     return foundDrinks
-
       ? response.send(foundDrinks)
       : response.sendStatus(404)
   } catch (error) {
@@ -72,8 +61,6 @@ const deleteDrink = async (request, response) => {
     if (!matchingDrinks) {
       return response.status(404)
     }
-
-
     await models.Drinks.destroy({ where: { name: name } })
 
     return response.send('Successfully deleted the drink')
