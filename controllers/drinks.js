@@ -1,6 +1,6 @@
-const models = require('../models')
+import models from '../models'
 
-const getAllDrinks = async (request, response) => {
+export const getAllDrinks = async (request, response) => {
   try {
     const drinks = await models.Drinks.findAll({
       include: [
@@ -15,13 +15,13 @@ const getAllDrinks = async (request, response) => {
     response.status(500).send('You must be drunk if you couldn\'t get the page')
   }
 }
-const getDrinkByName = async (request, response) => {
+export const getDrinkByName = async (request, response) => {
   try {
-    const { identifier } = request.params
+    const { id } = request.params
     const foundDrinks = await models.Drinks.findOne({
       where: {
         [models.Op.or]: [
-          { name: { [models.Op.like]: `%${identifier}%` } },
+          { name: { [models.Op.like]: `%${id}%` } },
         ],
       }
     })
@@ -34,7 +34,7 @@ const getDrinkByName = async (request, response) => {
   }
 }
 
-const saveNewDrink = async (request, response) => {
+export const saveNewDrink = async (request, response) => {
   try {
     const {
       name, directions, mixer, garnish, alcoholId
@@ -53,7 +53,7 @@ const saveNewDrink = async (request, response) => {
   }
 }
 
-const deleteDrink = async (request, response) => {
+export const deleteDrink = async (request, response) => {
   try {
     const { name } = request.params
     const matchingDrinks = await models.Drinks.findOne({ where: { name } })
@@ -69,5 +69,3 @@ const deleteDrink = async (request, response) => {
     return response.status(500).send('Unknown error while deleting drink, please try again.')
   }
 }
-
-module.exports = { getAllDrinks, saveNewDrink, getDrinkByName, deleteDrink }
