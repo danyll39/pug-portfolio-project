@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "./node_modules/.bin/concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "dev:client": "./node_modules/.bin/webpack --progress --inline --config webpack.dev.js",
+    "dev:client": "./node_modules/.bin/webpack --progress  --config webpack.dev.js",
     "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/babel-watch server.js",
     "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
     "lint": "./node_modules/.bin/eslint --format codeframe --ext jsx .",
@@ -29,14 +29,17 @@
     "pug": "^3.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "sequelize": "^6.3.5",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "babel-loader": "^8.2.2",
+    "babel-plugin-styled-components": "^1.12.0",
     "babel-watch": "^7.3.0",
     "chai": "^4.2.0",
     "concurrently": "^5.3.0",
