@@ -5,6 +5,8 @@ import Alcohol from '../components/Alcohol'
 import Title from '../components/Title'
 import { filterAlcohols, retrieveAlcohols } from '../utils/alcohols'
 
+
+
 export default () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [alcoholList, setAlcoholList] = useState([])
@@ -27,12 +29,16 @@ export default () => {
   }, [searchTerm])
 
   return (
-    <Page>
+    <Page >
+      
       <Title />
+
       <Search term={searchTerm} setter={setSearchTerm} />
       {
         filteredAlcoholList.map(alcohol => (<Alcohol key={alcohol.id} id={alcohol.id} name={alcohol.name} abv={alcohol.abv} />))
       }
+
     </Page>
+
   )
 }

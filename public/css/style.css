@@ -1,0 +1,13 @@
+
+
+.jumbotron{
+  
+    background-image: url('drinks.jpeg') ;
+    position: relative;
+    /* width:385px; */
+    /* background-repeat: inherit; */
+    /* text-align: center ; */
+    background-size:auto;
+ 
+  
+}

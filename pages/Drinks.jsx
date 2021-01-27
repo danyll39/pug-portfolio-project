@@ -12,7 +12,7 @@ import Title from '../components/Title'
 
 
 export default ({ location }) => {
-  console.log("CLIENT SIDE LOCATION DRINKS COMP - "+ location)
+  console.log("CLIENT SIDE LOCATION DRINKS COMP - " + location)
   const [alcoholId, setAlcoholId] = useState(0)
   const [alcohol, setAlcohol] = useState({})
   const [drinkList, setDrinkList] = useState([])
@@ -20,14 +20,14 @@ export default ({ location }) => {
   useEffect(() => {
     async function pullData() {
       const { id, details, drinks } = await retrieveAlcohols(location)
-      console.log("CLIENT SIDE LOCATION DRINKS COMP - "+ details)
+      console.log("CLIENT SIDE LOCATION DRINKS COMP - " + details)
       setAlcoholId(id)
       setAlcohol(details)
       setDrinkList(drinks)
 
 
     }
-    
+
 
     pullData()
   }, [])
@@ -35,7 +35,7 @@ export default ({ location }) => {
   return (
     <Page>
       <Title />
-      <GoBack />
+
       {
         alcoholId
           ? (
@@ -48,7 +48,9 @@ export default ({ location }) => {
                   name={drink.name}
                   directions={drink.directions}
                 />
+
               ))}
+              <GoBack />
             </>
           )
           : (<NotFound message="Sorry, I don't know that alcohol" />)
