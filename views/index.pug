@@ -21,16 +21,16 @@ html
                                     th(class="badge badge-pill badge-primary")
                                         a(scope="col") GET  
                                     th 
-                                         a(scope="col" href="api/drinks") /drinks
+                                         a(scope="col" href="api/drinks") /api/drinks
                                     th(scope="col") Find all Drinks along with alcohol
                                     th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allDrinksModal") Click for info    
                                 tr
                                     th(class="badge badge-pill badge-primary")
                                         a(scope="col") GET  
                                     th 
-                                         a(scope="col" href="/drinks") /drinks{name of drink}
+                                         a(scope="col" href="api/drinks") /api/drinks{name of drink}
                                     th(scope="col") Find drink by the name of the drink
-                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allDrinksModal") Click for info    
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#drinksByNameOfDrink") Click for info    
                                 tr
                                     th(class="badge badge-pill badge-warning")
                                         a(scope="col") GET  
@@ -39,10 +39,13 @@ html
                                     th(scope="col") Find all alcohols and the drinks that are made with them
                                     th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allAlcoholsModal") Click for info
                                 tr
-                                    th(scope="col" class="badge badge-pill badge-warning") GET
-                                    th(scope="col") /alcohols/{name of alcohol}
-                                    th(scope="col") Find list of drinks made by a particular alcohol
-                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#drinksByAlcoholModal") Click for info
+                                    th(class="badge badge-pill badge-warning")
+                                        a(scope="col") GET  
+                                    th 
+                                         a(scope="col" href="/api/alcohols") /api/alcohols/
+                                    th(scope="col") Find all alcohols
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allAlcoholsModal") Click for info
+                                tr
                                 tr
                                     th(scope="col" class="badge badge-pill badge-success") POST
                                     th(scope="col") /drinks
