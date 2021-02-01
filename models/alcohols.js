@@ -7,7 +7,3 @@ export default (connection, Sequelize) => connection.define('alcohols', {
     attributes: { exclude: ['createdAt', 'updatedAt', 'deletedAt'] }
   }
 }, { paranoid: true })
-
-
-
-

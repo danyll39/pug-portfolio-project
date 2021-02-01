@@ -11,10 +11,10 @@ app.set('view engine','pug')
 app.use(express.static('public'))
 
 
-app.get('/api', (request, response) => response.status(200).render('index'))
+app.get('/simpleAPI', (request, response) => response.status(200).render('index'))
 
-app.get('/', (request, response) => response.redirect('/api/simple'))
-// app.use(express.static('public'))
+app.get('/', (request, response) => response.redirect('/simpleAPI'))
+
 
 app.get('/api/drinks', getAllDrinks)
 app.get('/api/drinks/:id', getDrinkByName)

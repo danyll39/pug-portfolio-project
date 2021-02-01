@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
 
 
-.jumbotron{
-  
+.card{
+    font-family: 'Hachi Maru Pop', cursive;
+
+
+}
+.jumbotron {
     background-image: url('drinks.jpeg') ;
     position: relative;
-    /* width:385px; */
-    /* background-repeat: inherit; */
-    /* text-align: center ; */
+    text-align: center ;
     background-size:auto;
- 
-  
 }
+

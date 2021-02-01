@@ -10,5 +10,5 @@ const Details = styled.div`
 `
 
 export default ({ name, abv}) => (
-  <Details>{`${name} (${abv})`}</Details>
+  <Details><div>{`${name} (${abv}%  abv)`}</div></Details>
 )

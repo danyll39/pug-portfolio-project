@@ -8,9 +8,6 @@ import AlcoholDetails from '../components/AlcoholDetails'
 import Title from '../components/Title'
 
 
-
-
-
 export default ({ location }) => {
   console.log("CLIENT SIDE LOCATION DRINKS COMP - " + location)
   const [alcoholId, setAlcoholId] = useState(0)
@@ -24,18 +21,13 @@ export default ({ location }) => {
       setAlcoholId(id)
       setAlcohol(details)
       setDrinkList(drinks)
-
-
     }
-
-
     pullData()
   }, [])
 
   return (
     <Page>
       <Title />
-
       {
         alcoholId
           ? (
@@ -48,7 +40,6 @@ export default ({ location }) => {
                   name={drink.name}
                   directions={drink.directions}
                 />
-
               ))}
               <GoBack />
             </>

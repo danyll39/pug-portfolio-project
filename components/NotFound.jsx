@@ -6,12 +6,10 @@ const Icon = styled.div`
   margin: 20px 0;
   text-align: center;
 `
-
 const Message = styled.div`
   font-size: 20px;
   text-align: center;
 `
-
 export default ({ message }) => (
   <>
     <Icon>¯\_(ツ)_/¯</Icon>

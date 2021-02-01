@@ -10,7 +10,3 @@ export default (connection, Sequelize, Alcohols) => connection.define('drinks', 
     attributes: { exclude: ['deletedAt'] }
   }
 }, { paranoid: true })
-
-
-
-

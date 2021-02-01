@@ -8,12 +8,14 @@ const Title = styled.div`
 `
 
 const Subtitle = styled.div`
-  font-size: 20px;
+  font-size: 22px;
 `
 
 export default () => (
   <>
-    <Title>Simple Drinks</Title>
+  
+    <Title><h2>Simple Drinks</h2></Title>
     <Subtitle>Welcome</Subtitle>
+ 
   </>
 )

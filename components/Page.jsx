@@ -7,7 +7,14 @@ const Page = styled.div`
   width: 60%;
 
 `
-
 export default ({ children }) => (
-  <Page>{children}</Page>
+  <Page>
+    <nav aria-label="breadcrumb">
+      <ol className="breadcrumb">
+        <li className="breadcrumb-item"><a href="/simpleApi">Home</a></li>
+        <li className="breadcrumb-item active" aria-current="page"><a href="/" >Search</a></li>
+      </ol>
+    </nav>
+    <div className="jumbotron jumbotron-fluid"></div>
+    {children}</Page>
 )

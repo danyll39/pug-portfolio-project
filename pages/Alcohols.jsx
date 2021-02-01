@@ -5,8 +5,6 @@ import Alcohol from '../components/Alcohol'
 import Title from '../components/Title'
 import { filterAlcohols, retrieveAlcohols } from '../utils/alcohols'
 
-
-
 export default () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [alcoholList, setAlcoholList] = useState([])
