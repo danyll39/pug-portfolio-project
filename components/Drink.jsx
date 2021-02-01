@@ -7,11 +7,13 @@ const Drink = styled.div`
   text-align: center;
   
 `
+
 export default ({ id, name, directions}) => (
   <Drink key={id}><div className="card">
     <div className="card-body">
-      <h4>Directions</h4>
-    <p>{`${name}${directions}`}</p>
+      <h5>Directions for {`${name}`}</h5>
+    
+    <p>{`${directions}`}</p>
     </div>
     </div>
   </Drink>
