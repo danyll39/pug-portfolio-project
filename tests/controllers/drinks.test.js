@@ -1,19 +1,19 @@
 /* eslint-disable max-len */
-const chai = require('chai')
-const sinon = require('sinon')
-const sinonChai = require('sinon-chai')
-const models = require('../../models')
-const {
+import chai, { expect } from 'chai'
+import sinon  from 'sinon'
+import sinonChai from 'sinon-chai'
+import models from'../../models'
+import {
   afterEach, before, beforeEach, describe, it
-} = require('mocha')
-const {
+} from 'mocha'
+import {
   drinksList, singleDrink, singleDeleteDrink, alcoholList, singleAlcohol
-} = require('../mocks/drinks')
-const { getAllDrinks, getDrinkByName, saveNewDrink, deleteDrink } = require('../../controllers/drinks')
-const { getAllDrinksByAlcohol, getDrinksByAlcoholName, saveNewAlcohol, deleteAlcohol } = require('../../controllers/alcohol')
+} from '../mocks/drinks'
+import { getAllDrinks, getDrinkByName, saveNewDrink, deleteDrink } from '../../controllers/drinks'
+import { getAllDrinksByAlcohol, getDrinksByAlcoholName, saveNewAlcohol, deleteAlcohol } from '../../controllers/alcohols'
 
 chai.use(sinonChai)
-const { expect } = chai
+// const { expect } = chai
 
 describe('Controllers - drinks', () => {
   let sandbox
@@ -215,7 +215,7 @@ describe('Controllers - drinks', () => {
         include: [{ model: models.Drinks }],
         where: {
           [models.Op.or]: [
-            { name: { [models.Op.like]: '%undefined%' } },
+            { name: { [models.Op.like]: '%Gin%' } },
           ],
         }
       })
@@ -224,7 +224,7 @@ describe('Controllers - drinks', () => {
     it('responds with a 404 when no alcohol can be found with the name passed in', async () => {
       stubbedAlcoholFindAll.returns(null)
 
-      const request = { params: { name: 'not-found' } }
+      const request = { params: { name: 'Gin' } }
 
       await getDrinksByAlcoholName(request, response)
 
@@ -232,7 +232,7 @@ describe('Controllers - drinks', () => {
         include: [{ model: models.Drinks }],
         where: {
           [models.Op.or]: [
-            { name: { [models.Op.like]: '%undefined%' } },
+            { name: { [models.Op.like]: '%Gin%' } },
           ]
         }
       })
