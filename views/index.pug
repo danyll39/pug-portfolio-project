@@ -1,0 +1,69 @@
+html
+   head
+        include partials/head.pug
+        include partials/modals.pug
+        body   
+            div(class="jumbotron text-center") 
+                h1(class="display-4") Welcome to Simple Drinks API
+                p(class="lead") This is an api for simple one alcohol cocktails.
+                hr(class="my-4")
+                p Simple drinks api is a list of cocktail that are made with only one alcohol.
+                    div(class="container")
+                        table(class="table")
+                            thead(class="thead-dark")
+                                tr
+                                    th(scope="col") METHOD
+                                    th(scope="col") ROUTE
+                                    th(scope="col") RETURN
+                                    th(scope="col") INFO  
+                            tbody
+                                tr
+                                    th(class="badge badge-pill badge-primary")
+                                        a(scope="col") GET  
+                                    th 
+                                         a(scope="col" href="api/drinks") /api/drinks
+                                    th(scope="col") Find all Drinks along with alcohol
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allDrinksModal") Click for info    
+                                tr
+                                    th(class="badge badge-pill badge-primary")
+                                        a(scope="col") GET  
+                                    th 
+                                         a(scope="col" href="api/drinks") /api/drinks{name of drink}
+                                    th(scope="col") Find drink by the name of the drink
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#drinksByNameOfDrink") Click for info    
+                                tr
+                                    th(class="badge badge-pill badge-warning")
+                                        a(scope="col") GET  
+                                    th 
+                                         a(scope="col" href="/") /
+                                    th(scope="col") Find all alcohols and the drinks that are made with them
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allAlcoholsModal") Click for info
+                                tr
+                                    th(class="badge badge-pill badge-warning")
+                                        a(scope="col") GET  
+                                    th 
+                                         a(scope="col" href="/api/alcohols") /api/alcohols/
+                                    th(scope="col") Find all alcohols
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#allAlcoholsModal") Click for info
+                                tr
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-success") POST
+                                    th(scope="col") /drinks
+                                    th(scope="col") Create a new drink
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#postDrinks") Click for info
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-success") POST
+                                    th(scope="col") /drinks
+                                    th(scope="col") Create new alcohol
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#postAlcohol") Click for info
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-danger") DELETE
+                                    th(scope="col") /drinks/{drink name}
+                                    th(scope="col") Delete by name of drink
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#deleteDrinks") Click for info
+                                tr
+                                    th(scope="col" class="badge badge-pill badge-danger") DELETE
+                                    th(scope="col") /alcohol/{alcohol name}
+                                    th(scope="col") Delete by name of alcohol
+                                    th(scope="col" type="button" class="badge badge-pill badge-info" data-toggle="modal" data-target="#deleteAlcohols") Click for info
+                    hr         
