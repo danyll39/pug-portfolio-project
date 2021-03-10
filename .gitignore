@@ -1,3 +1,5 @@
 node_modules
 .env
 public/javascript/bundle.js
+bundle.js
+dist
