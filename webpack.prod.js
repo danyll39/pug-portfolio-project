@@ -1,5 +1,7 @@
+const CopyPlugin = require('copy-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './client.jsx',
@@ -15,8 +17,17 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist', 'javascript'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'bundle.js',
+    filename: 'javascript/bundle.js',
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+
+    new CopyPlugin({
+      patterns: [
+      { from: path.resolve(__dirname, 'public', 'index.html'), to: path.resolve(__dirname, 'dist', 'index.html') }
+      ]
+    })
+  ]
 }
