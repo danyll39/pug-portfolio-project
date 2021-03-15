@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/danyll39/pug-portfolio-project/issues"
   },
-  "homepage": "https://github.com/danyll39/pug-portfolio-project#readme",
+  "homepage":  "https://danyll39.github.io/pug-portfolio-project/",
   "dependencies": {
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
